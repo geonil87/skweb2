@@ -1,0 +1,23 @@
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata: 
+  name: "product"
+  labels: 
+    app: "product"
+spec: 
+  selector: 
+    matchLabels: 
+      app: "product"
+  replicas: 1
+  template: 
+    metadata: 
+      labels: 
+        app: "product"
+    spec: 
+      containers: 
+        - 
+          name: "product"
+          image: "skiacr.azurecr.io/httpd:s4"
+          ports: 
+            - 
+              containerPort: 80
